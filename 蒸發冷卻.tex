@@ -1,0 +1,111 @@
+\documentclass[12]{article}
+\usepackage{enumerate} %列举宏包
+
+\usepackage{longtable}%长表格
+
+\usepackage{multirow} %合并多行单元格的宏包
+\usepackage{longtable} %不宽但很长的表格可以用longtable宏包来进行分页显示
+\usepackage{array} %一般用于数学公式中对数组或矩阵的排版
+\usepackage{makecell}% makecell命令对表格单元格中的数据进行一些变换的控制。我们可以使用 \ 命令进行换行，也可以使用p{(宽度)}选项控制列表的宽度
+\usepackage{threeparttable} %制作三线表格
+\usepackage{booktabs}%s三线表格中的上中下直线线型设置宏包，在这个包中水平线被教程\toprule、midrule、buttomrule。
+%表头文字格式的详细设置
+\renewcommand\theadset{\renewcommand\arraystretch{0.85}%
+\setlength\extrarowheight{0pt}}%行距
+\renewcommand\theadfont{\small}%字体
+\renewcommand\theadalign{rt}%行列对齐
+\renewcommand\theadgape{\Gape[0.3cm][2mm]}%上下垂直距离
+
+
+\usepackage{indentfirst}%设置首行缩进1.5字符
+\setlength{\parindent}{1.5em}%设置首行缩进1.5字符
+\usepackage{caption}%规范了图片和表格的命名方式
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Fig.}} %图片命名时，默认为"Figure 1"，但我查看很多期刊，都采用"Fig. 1"，即"简写+加粗"的形式，第1行代码实现的就是这种转化。
+%\captionsetup[table]{font={small}, labelsep=none, labelfont={bf}, labelsep=newline,singlelinecheck=off} %表格标题命名时，默认是居中且仅有一行。但大家仔细查看英文论文时会发现，表格（Table1）标题（表格题目）都是居左的，有两行。故第2行代码实现的就是该功能。
+\linespread{1}%设置行间距
+\renewcommand{\baselinestretch}{1.5} \normalsize%这种行间距的写法是针对全文而言的，若想2倍行间距，把数值1.5改成2即可；
+%\usepackage[backref]{hyperref}%让引用位置和参考文献位置连接互通： (无法使用
+\usepackage{cite}%引用
+\usepackage{geometry}
+%\usepackage{fontspec}%设置字体 (与粗体斜体设置冲突，故取消
+ %\setmainfont{Times New Roman}%using Times New Roman字体
+\usepackage{fancyhdr}%页眉与页脚
+\pagestyle{fancy}%页眉与页脚
+%\fancyhf{}%清除原页眉页脚样式
+%\fancyhead[L]{PHYS 3710 \Rmnum{1}   }%左页眉
+%\fancyhead[R]{ Verification of special relativity $\&$ $\beta$ spectroscopy}%右页眉
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏
+\usepackage{subfigure} %插入多图时用子图显示的宏包
+\geometry{a4paper ,scale=0.85}%设置纸张大小与行宽
+\makeatletter%罗马字母的使用 
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother%小写罗马数字 ： \rmnum{数字} 大写罗马数字 ： \Rmnum{数字}
+\title{Evaporative Cooling }\author{LHY}
+\begin{document}
+\maketitle%report从这里开始
+\setcounter{page}{0}%让封面不显示页数
+\thispagestyle{empty}%让封面不显示页数
+\renewcommand{\abstractname}{\Large \textbf% 粗体设置
+{Abstract}\\}%让Abstract这个标题变大
+
+
+\newpage
+\section{Theoretical Models for Evaporative Cooling}
+\subsection{General Scaling Laws}
+First, evaporative cooling happens on an\textit{ exponential scale}: Within a certain time interval (naturally measured in units of collision times or relaxation times), all relevant parameters (number of atoms, temperature, density) change by a certain factor. The characteristic quantities for the evaporation process are therefore logarithmic derivatives such as: $$\alpha = \frac{d(ln\ T)}{d(ln\ N)} = \frac{\dot{T}/T}{\dot{N}/N}$$
+  
+  
+  or, if evaporative cooling is described as a process with finite steps, we have: $$\alpha = \frac{ln\ (T'/T)}{ln\ (N'/N)},\ T'=T + \Delta T,\ N'=N+\Delta N$$
+  
+  If $\alpha$ is constant during the evaporation process, the temperature drops with function: $$\frac{T(t)}{T(0)}=(\frac{N(t)}{N(0)})^{\alpha} $$
+  
+  In a power law potential in $d$ dimensions, $U(r)\propto r^{d/\delta}$,\textit{ all relevant quantities} scale as $[N(t)/N(0)]^x $ during evaporative cooling, where $x$ depends only on $\delta$ and $\alpha$. $\delta$ is defined in such a way that the volume scales as $T^\delta$. All other quantities are products of powers of temperature, number, and volume, and their scaling is listed in Table 1.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Scaling Laws For Evaporative Cooling In \\ A $d$ Dimension Potential $U(r)\propto r^{d/ \delta}$ }
+  \begin{tabular}{|l|l|c|}
+    \hline
+    Quantity & Exponent $^a, x$ \\
+   \hline Number of atoms, $N$ & 1 \\
+Temperature, $T$ & $\alpha$ \\
+Volume, $V$ & $\delta \alpha$ \\
+Density, $n$ & $1-\delta \alpha$ \\
+Phase-space density, $D$ & $1-\alpha(\delta+3 / 2)$ \\
+Elastic collision rate, $n \sigma v$ & $1-\alpha(\delta-1 / 2)$ \\
+\hline
+  \end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{center}%居中表示结尾
+	\Large***END***
+\end{center}
+
+
+\end{document}
