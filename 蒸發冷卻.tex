@@ -17,6 +17,7 @@
 \renewcommand\theadgape{\Gape[0.3cm][2mm]}%上下垂直距离
 
 
+ 
 \usepackage{indentfirst}%设置首行缩进1.5字符
 \setlength{\parindent}{1.5em}%设置首行缩进1.5字符
 \usepackage{caption}%规范了图片和表格的命名方式
@@ -31,8 +32,8 @@
  %\setmainfont{Times New Roman}%using Times New Roman字体
 \usepackage{fancyhdr}%页眉与页脚
 \pagestyle{fancy}%页眉与页脚
-%\fancyhf{}%清除原页眉页脚样式
-%\fancyhead[L]{PHYS 3710 \Rmnum{1}   }%左页眉
+\fancyhf{}%清除原页眉页脚样式
+\fancyhead[L]{ \MakeUppercase{Evaporative Cooling} }%左页眉
 %\fancyhead[R]{ Verification of special relativity $\&$ $\beta$ spectroscopy}%右页眉
 \usepackage{graphicx} %插入图片的宏包
 \usepackage{float} %设置图片浮动位置的宏
@@ -43,6 +44,8 @@
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother%小写罗马数字 ： \rmnum{数字} 大写罗马数字 ： \Rmnum{数字}
 \title{Evaporative Cooling }\author{LHY}
+\fancyhead[C]{\subsectionmark}
+\fancyfoot[C]{\sectionmark}
 \begin{document}
 \maketitle%report从这里开始
 \setcounter{page}{0}%让封面不显示页数
@@ -54,14 +57,14 @@
 \newpage
 \section{Theoretical Models for Evaporative Cooling}
 \subsection{General Scaling Laws}
-First, evaporative cooling happens on an\textit{ exponential scale}: Within a certain time interval (naturally measured in units of collision times or relaxation times), all relevant parameters (number of atoms, temperature, density) change by a certain factor. The characteristic quantities for the evaporation process are therefore logarithmic derivatives such as: $$\alpha = \frac{d(ln\ T)}{d(ln\ N)} = \frac{\dot{T}/T}{\dot{N}/N}$$
+First, evaporative cooling happens on an\textbf{\textit{ exponential scale}}: Within a certain time interval (naturally measured in units of collision times or relaxation times), all relevant parameters (number of atoms, temperature, density) change by a certain factor. The characteristic quantities for the evaporation process are therefore logarithmic derivatives such as: $$\alpha = \frac{d(ln\ T)}{d(ln\ N)} = \frac{\dot{T}/T}{\dot{N}/N}$$
   
   
-  or, if evaporative cooling is described as a process with finite steps, we have: $$\alpha = \frac{ln\ (T'/T)}{ln\ (N'/N)},\ T'=T + \Delta T,\ N'=N+\Delta N$$
+  Or, if evaporative cooling is described as a process with finite steps, we have: $$\alpha = \frac{ln\ (T'/T)}{ln\ (N'/N)},\ T'=T + \Delta T,\ N'=N+\Delta N$$
   
   If $\alpha$ is constant during the evaporation process, the temperature drops with function: $$\frac{T(t)}{T(0)}=(\frac{N(t)}{N(0)})^{\alpha} $$
   
-  In a power law potential in $d$ dimensions, $U(r)\propto r^{d/\delta}$,\textit{ all relevant quantities} scale as $[N(t)/N(0)]^x $ during evaporative cooling, where $x$ depends only on $\delta$ and $\alpha$. $\delta$ is defined in such a way that the volume scales as $T^\delta$. All other quantities are products of powers of temperature, number, and volume, and their scaling is listed in Table 1.
+  In a power law potential in $d$ dimensions, $U(r)\propto r^{d/\delta}$,\textbf{\textit{ all relevant quantities}} scale as $[N(t)/N(0)]^x $ during evaporative cooling, where $x$ depends only on $\delta$ and $\alpha$. $\delta$ is defined in such a way that the volume scales as $T^\delta$. All other quantities are products of powers of temperature, number, and volume, and their scaling is listed in Table 1.
 
 \begin{table}[htbp]
   \centering
@@ -79,15 +82,21 @@ Elastic collision rate, $n \sigma v$ & $1-\alpha(\delta-1 / 2)$ \\
   \end{tabular}
 \end{table}
 
+Phases space density $D$ is defined as $n\lambda^3_{dB}$ with the thermal de Broglie wavelength $\lambda_{dB} = \sqrt{\frac{2\pi \hbar^2}{mkT}}$, for an atom with mass $m$. 
 
+The key parameter of the whole cooling process is $\alpha$ , which \textbf{\textit{expresses the temperature decrease per particle los}}t. Technically, evaporation is controlled by limiting the depth of the potential to $\eta kT$. \textbf{\textit{The average energy of the escaping atoms}} is $(\eta + \kappa)kT$, where $\kappa$ is a small number usually between 0 and 1, depending both on $\eta$ and on the dimension of the evaporation.  
 
+For large $\eta$, the energy distribution of the trapped atoms is close to a Boltzmann distribution with an average energy of $(\delta+\frac{3}{2})kT$, and there is \textbf{\textit{a simple relation between the average energy of an escaping atom and $\alpha$:}} $$\alpha= \frac{\eta+\kappa}{\delta+\frac{3}{2}}-1 =\frac{(\eta+\kappa-\delta-\frac{3}{2})\ kT}{(\delta+\frac{3}{2})\ kT}$$
 
+This expression has an obvious meaning: $\alpha$ is a dimensionless quantity, charactericing how much more than the average energy $(\delta+\frac{3}{2})\ kT$ is removed by an evaporating atoms. These considerations show that in principle there is no upper bound for $\alpha$ or the efficiency of evaporative cooling. Therefore, efficiency of evaporation, and comparison between different trap geometries, can only be made if the trade-off between efficiency and cooling speed is considered. This is done by specifying loss mechanisms that are unavoidable in practice.
+\subsection{The Speed Of Evaporation Loss Processes}
+We now want to extend the discussion and consider the speed of evaporation, introduce time as a parameter. The situation we have in mind is forced evaporation at a constant $\eta$ parameter; the threshold for evaporation is lowered in proportion to the decreasing temperature. Constant $\eta$ ensures that the energy distribution is only rescaled during the cooling and does not change its shape. This assumption is reasonably well fulfilled in experiments.
 
+\textbf{\textit{The principle of detailed balance}} can be used in kinetic systems which are decomposed into elementary processes (collisions, or steps, or elementary reactions). It states that at equilibrium, each elementary process is in equilibrium with its reverse process. $Rate(A\rightarrow B)=Rate(B\rightarrow A)$
 
+We consider particles at density $n_0$ in a box potential, and we assume that $\eta$ is large. The rate of evaporating atoms can then be obtained as follows: In an untruncated Maxwell-Boltzmann distribution, almost every collision involving an atom in the high energy tail removes the atom from the high energy tail. By detailed balance, elastic collisions produce atoms with energy larger than $\eta kT$ at a rate that is simply the number of atoms with energy larger than $\eta kT$ divided by their collision time. For a large value of $\eta$,the rate of evaporation in a truncated Boltzmann distribution is identical to the production rate of atoms with energy larger than $\eta kT$ in the untruncated distribution. 
 
-
-
-
+The velocity of atoms with energy $\eta kT$ is $$, where $\bar{v}$ denotes the average thermal velocity. 
 
 
 
