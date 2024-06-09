@@ -16,7 +16,7 @@
 \renewcommand\theadalign{rt}%行列对齐
 \renewcommand\theadgape{\Gape[0.3cm][2mm]}%上下垂直距离
 
-
+\usepackage{tocbibind}
  
 \usepackage{indentfirst}%设置首行缩进1.5字符
 \setlength{\parindent}{1.5em}%设置首行缩进1.5字符
@@ -33,7 +33,7 @@
 \usepackage{fancyhdr}%页眉与页脚
 \pagestyle{fancy}%页眉与页脚
 \fancyhf{}%清除原页眉页脚样式
-\fancyhead[L]{ \MakeUppercase{Evaporative Cooling} }%左页眉
+\fancyhead[L]{ \MakeUppercase{Evaporative Cooling OF TRAPPED ATOMS} }%左页眉
 %\fancyhead[R]{ Verification of special relativity $\&$ $\beta$ spectroscopy}%右页眉
 \usepackage{graphicx} %插入图片的宏包
 \usepackage{float} %设置图片浮动位置的宏
@@ -53,7 +53,9 @@
 \renewcommand{\abstractname}{\Large \textbf% 粗体设置
 {Abstract}\\}%让Abstract这个标题变大
 
-
+\setcounter{tocdepth}{2}
+\tableofcontents
+ 
 \newpage
 \section{Theoretical Models for Evaporative Cooling}
 \subsection{General Scaling Laws}
@@ -89,19 +91,31 @@ The key parameter of the whole cooling process is $\alpha$ , which \textbf{\text
 For large $\eta$, the energy distribution of the trapped atoms is close to a Boltzmann distribution with an average energy of $(\delta+\frac{3}{2})kT$, and there is \textbf{\textit{a simple relation between the average energy of an escaping atom and $\alpha$:}} $$\alpha= \frac{\eta+\kappa}{\delta+\frac{3}{2}}-1 =\frac{(\eta+\kappa-\delta-\frac{3}{2})\ kT}{(\delta+\frac{3}{2})\ kT}$$
 
 This expression has an obvious meaning: $\alpha$ is a dimensionless quantity, charactericing how much more than the average energy $(\delta+\frac{3}{2})\ kT$ is removed by an evaporating atoms. These considerations show that in principle there is no upper bound for $\alpha$ or the efficiency of evaporative cooling. Therefore, efficiency of evaporation, and comparison between different trap geometries, can only be made if the trade-off between efficiency and cooling speed is considered. This is done by specifying loss mechanisms that are unavoidable in practice.
-\subsection{The Speed Of Evaporation Loss Processes}
+\subsection{The Speed of Evaporation Loss Processes}
 We now want to extend the discussion and consider the speed of evaporation, introduce time as a parameter. The situation we have in mind is forced evaporation at a constant $\eta$ parameter; the threshold for evaporation is lowered in proportion to the decreasing temperature. Constant $\eta$ ensures that the energy distribution is only rescaled during the cooling and does not change its shape. This assumption is reasonably well fulfilled in experiments.
 
 \textbf{\textit{The principle of detailed balance}} can be used in kinetic systems which are decomposed into elementary processes (collisions, or steps, or elementary reactions). It states that at equilibrium, each elementary process is in equilibrium with its reverse process. $Rate(A\rightarrow B)=Rate(B\rightarrow A)$
 
 We consider particles at density $n_0$ in a box potential, and we assume that $\eta$ is large. The rate of evaporating atoms can then be obtained as follows: In an untruncated Maxwell-Boltzmann distribution, almost every collision involving an atom in the high energy tail removes the atom from the high energy tail. By detailed balance, elastic collisions produce atoms with energy larger than $\eta kT$ at a rate that is simply the number of atoms with energy larger than $\eta kT$ divided by their collision time. For a large value of $\eta$,the rate of evaporation in a truncated Boltzmann distribution is identical to the production rate of atoms with energy larger than $\eta kT$ in the untruncated distribution. 
 
-The velocity of atoms with energy $\eta kT$ is $$, where $\bar{v}$ denotes the average thermal velocity. 
+The velocity of atoms with energy $\eta kT$ is $\sqrt{\frac{2\eta kT}{m}}=\sqrt{\eta \pi }\cdot \frac{\bar v}{2}$, where $\bar{v}$ denotes the average thermal velocity. For large $\eta$, the fraction of atoms with energy larger than $\eta kT$ approaches $2e^{-\eta} \sqrt{\frac{\eta}{\pi}}$. The rate of evaporating atoms is thus: $$ \dot{N}=-N n_0 \sigma \bar{v} \eta e^{-\eta}=\frac{-N}{\tau_{\mathrm{ev}}} $$
 
+Where we have introduced the elastic collision cross section $\sigma$ and the time constant for evaporation $\tau_{ev}$.   It's ratio to the elastic collision time $\tau_{el} $ is expressed by $\lambda=\frac{\tau_{ev}}{\tau_{el}}$ Using $\frac{1}{\tau_{el}}=n_0 \sigma \bar{v} \sqrt{2}$, where $\bar{v}\sqrt{2}$ is the average relative velocity between two atoms, we obtain in the limit of large $\eta$, $$\lambda=\frac{\sqrt{2}e^\eta}{\eta}$$
+\subsubsection{Runaway Evaporation}
+For alkali atoms, where the dominant loss mechanism is background gas collisions, an important criterion for sustained evaporation is to maintain or increase the elastic collision rate $n \sigma v$. It follows that \textbf{\textit{the elastic collision rate varies}} as: $$ \frac{d(n \sigma v)}{d t} / n \sigma v=\frac{1}{\tau_{\mathrm{el}}}\left(\frac{\alpha(\delta-1 / 2)-1}{\lambda}-\frac{1}{R}\right)$$ 
 
+In the temperature range of interest, $\sigma$ is the s-wave cross section and is independent of temperature. $R=\frac{\tau_{loss}}{\tau_{el}}$ is the number of elastic collisions per trapping time (also called the ratio of good to bad collisions) where $\tau_{loss} $ is the time constant for trap loss due to background gas collisions. Evaporation at constant or increasing collision rate ("runaway evaporation") requires: $$R \geq R_{\min }=\frac{\lambda}{\alpha(\delta-1 / 2)-1}$$
 
+In the absence of any loss process $( R = \infty)$, the minimum $\eta$ for runaway evaporation is determined by: $$\alpha>\frac{1}{\delta-1 / 2}$$
 
+\textbf{\textit{The increase of phase space density}} with time is given by:$$
+\beta=100 \tau_{\mathrm{el}} \frac{d}{d t}\left(\log _{10} D\right)=\frac{100}{\ln 10}\left(\frac{\alpha(\delta+3 / 2)-1}{\lambda}-\frac{1}{R}\right)$$
 
+\subsubsection{Maximizing Phase-Space Density}
+$\alpha$ describes only the change in temperature. If we regard evaporation in a linear potential as analogous to evaporation in a harmonic potential with continuous adiabatic compression, we realize that a does not provide the most meaningful comparison, because adiabatic compression trades in temperature against density. We therefore now focus on phase-space density $D$, which is invariant with respect to adiabatic changes of the potential.
+
+\textit{\textbf{The relative increase in phase space density with decreasing number N}}:$$
+\gamma=-\frac{d(\ln D)}{d(\ln N)}=\frac{\alpha(\delta+3 / 2)}{1+\lambda / R}-1$$
 
 
 
