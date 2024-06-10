@@ -36,6 +36,7 @@
 \fancyhead[L]{ \MakeUppercase{Evaporative Cooling OF TRAPPED ATOMS} }%左页眉
 %\fancyhead[R]{ Verification of special relativity $\&$ $\beta$ spectroscopy}%右页眉
 \usepackage{graphicx} %插入图片的宏包
+\usepackage{hyperref}
 \usepackage{float} %设置图片浮动位置的宏
 \usepackage{subfigure} %插入多图时用子图显示的宏包
 \geometry{a4paper ,scale=0.85}%设置纸张大小与行宽
@@ -50,9 +51,9 @@
 \maketitle%report从这里开始
 \setcounter{page}{0}%让封面不显示页数
 \thispagestyle{empty}%让封面不显示页数
-\renewcommand{\abstractname}{\Large \textbf% 粗体设置
-{Abstract}\\}%让Abstract这个标题变大
-
+%\renewcommand{\abstractname}{\Large \textbf% 粗体设置
+%{Abstract}\\}%让Abstract这个标题变大
+\renewcommand{\contentsname}{Summary}
 \setcounter{tocdepth}{2}
 \tableofcontents
  
@@ -117,12 +118,56 @@ $\alpha$ describes only the change in temperature. If we regard evaporation in a
 \textit{\textbf{The relative increase in phase space density with decreasing number N}}:$$
 \gamma=-\frac{d(\ln D)}{d(\ln N)}=\frac{\alpha(\delta+3 / 2)}{1+\lambda / R}-1$$
 
+The most important figure of merit of evaporative cooling in atom traps is to \textbf{\textit{achieve the maximum increase in phase-space density with the smallest loss in the number}} (to reach BEC with the largest number of atoms possible). This would mean that the goal is to achieve the largest value of the global parameter:$$\gamma_{tot}=\frac{\ln \left(D_{final} / D_{initial}\right)}{\ln \left(N_{final} / N_ {initial}\right)}$$
 
+This global parameter is optimized by optimizing $\gamma$ at any moment. To explain this, we first note that the elastic collision rate at any moment can be expressed by the phase-space density and the number of atoms:$$n \sigma v \propto D^{(\delta-1 / 2) /(\delta+3 / 2)} N^{2 /(\delta+3 / 2)}$$
 
+Then we divide the increase in phase-space density in many small steps of size $\Delta D$. The efficiency y of the second step is optimized by maximizing $R$. According to last equation, this is achieved by maximizing the number of atoms left after the first step. As a result, following an evaporation path that maximizes $\gamma$ at any given point maximizes $\gamma_{tot}$ and, thus, the number of atoms left at the final phase-space density.
 
+The same conclusion applies for cooling of atomic hydrogen, where the dominant loss process is inelastic binary collision. $R$ is then independent of density and proportional to $\sqrt{T}$, resulting in:$$R \propto D^{-1 /[2(\delta+3 / 2)]} N^{1 /[2(\delta+3 / 2)]}$$
 
+There is \textbf{\textit{one major difference}} between the loss due to background gas collisions and that due to inelastic collisions. Inelastic collisions heat up the sample because they happen most frequently in regions of high density, where the potential energy is small. As a result, atoms lost due to \textbf{\textit{inelastic collisions}} carry away less than their share in total energy, thus increasing the average energy of the trapped atoms. This effect decreases the effective $\alpha$, which expresses the average energy of a lost particle. Actually, $\alpha$ even changes sign as a function of temperature when the heating due to \textbf{\textit{dipolar relaxation}} dominates over the evaporative cooling. The criterion $\alpha = 0$ determines the lowest temperature that can be achieved in evaporative cooling due to relaxation heating, whereas a model considering only background gas collisions allows cooling to arbitrarily small temperatures.
+\subsubsection{Strategies for Evaporation Cooling}
+It might appear that the two previous subsections on phase-space density increase and runaway evaporation describe different strategies or even conflicting goals. We now want to discuss qualitatively how they depend on each other and emphasize \textbf{\textit{the major difference between evaporative cooling in alkalis and in atomic hydrogen}}.
 
+\textbf{\textit{The ultimate goal is the achievement of high phase-space densities.}} As was pointed out, maximizing $\gamma$ is the optimum strategy for this goal. However, for small $R$, $\gamma$ becomes negative; no increase in phase-space density is possible. Therefore, a phase-space density increase can only be sustained as long as $R$ is larger than a critical value. 
 
+For loss due to \textbf{\textit{background gas collisions}} (the dominant limitation for alkalis), $R$ changes according to:$$
+-\frac{d(\ln R)}{d(\ln N)}=\frac{\alpha(\delta-1 / 2)}{1+\lambda / R}-1$$ 
+
+$R$ varies exponentially with $\frac{1}{N}$, with the exponent given by the right hand side of equation. If the exponent is negative at some point during the cooling,  $R$ decreases, resulting in an even more negative exponent later on.  The consequence is an accelerated decrease of $R$ and an accelerated reduction of the efficiency parameter $\gamma$, until eventually $\gamma$ reaches zero and no further increase in phase-space density is possible. Work in \textbf{\textit{alkali systems}} concentrated on realizing an initial situation with a sufficiently large $R$ , so that $R$ increased during evaporation. In principle, cooling with a (slowly) decreasing $R$ is possible, as long as the desired phase-space density is reached before $\gamma$ becomes zero. However, when the threshold of \textbf{\textit{runaway evaporation}} is reached, $R$ stays constant or increases. This guarantees \textbf{\textit{both fast and efficient cooling to very high phase-space densities}}. The phase-space density increase is only limited by the onset of other loss processes such as \textbf{\textit{three-body recombination and dipolar relaxation}}, which inevitably reduce $R$ and throttle the cooling process. 
+
+In \textbf{\textit{atomic hydrogen}}, the situation is quite different. All experiments in atomic hydrogen were done in a cryogenic environment where \textbf{\textit{background gas collisions were negligible}}, and the dominant loss mechanism was \textbf{\textit{inelastic binary collisions}}. $R$ is \textbf{\textit{independent of density and decreases proportionally to $\sqrt{T}$}}. Runaway or increasing collision rates speed up the cooling process, but in contrast to alkali atoms, they do not increase $R$ nor improve the efficiency of evaporative cooling. In all experiments, the initial temperature, and therefore $R$, was large enough to allow efficient cooling in the beginning. However, during the cooling process the efficiency decreased, and the highest phase-space densities were reached when either $\gamma$ became small or the number of atoms in the sample reached the detection limit.
+
+ \subsection{Models}
+ \subsubsection{Amsterdam}
+ The Amsterdam group modeled evaporative cooling within a kinetic theory involving a numerical solution of the Boltzmann equation. These results confirmed that \textbf{\textit{the energy distribution can be very well approximated by a truncated Boltzmann distribution}}.  Subsequently, a closed set of differential equations for evaporative cooling was derived under the assumption of a truncated Boltzmann distribution, that all particles with energy larger than $\eta kT$ leave the trap.       
+  \subsubsection{Davis and Coworkers (MIT)}
+  It approximated the evaporation process as a discrete series of truncation and rethermalication processes, and it arrived at simple analytical results. These were used to discuss the threshold for runaway evaporation for different potentials.     
+\subsubsection{Doyle and Coworkers (MIT)}
+John Doyle and collaborators derived a set of coupled differential equations that described various cooling, heating, and loss processes and included adiabatic changes of the potential during the cooling process. Furthermore, optimized trajectories in phase space were determined aiming at the highest final phase-space density for a given initial temperature and density combination.
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
 
 
 
