@@ -146,19 +146,54 @@ In \textbf{\textit{atomic hydrogen}}, the situation is quite different. All expe
   It approximated the evaporation process as a discrete series of truncation and rethermalication processes, and it arrived at simple analytical results. These were used to discuss the threshold for runaway evaporation for different potentials.     
 \subsubsection{Doyle and Coworkers (MIT)}
 John Doyle and collaborators derived a set of coupled differential equations that described various cooling, heating, and loss processes and included adiabatic changes of the potential during the cooling process. Furthermore, optimized trajectories in phase space were determined aiming at the highest final phase-space density for a given initial temperature and density combination.
+\subsubsection{Monte Carlo Simulations}
+Two groups developed an elegant Monte Carlo trajectory technique that allowed an efficient solution of the classical kinetic equation. This technique solves the Boltzmann equation directly without any assumptions such as partial equilibrium or the presence of a truncated Boltzmann distribution.      
+\subsection{The Dimension of Evaporation}       
+Evaporative cooling relies on the selection of energetic particles that leave the  trap. This selection can be based on the total energy $E$ or on the energy for the motion in a particular direction $E_z$. We call the selection one-dimensional if it is based on $E_z > \eta kT$, two-dimensional for $E_x +E_y > \eta kT$, and three-dimensional for $E > \eta kT$. This distinction is rigorous only for separable potentials. In the context of evaporative cooling the relevant timescale is the time between elastic collisions. Thus, if the ergodic mixing time is longer than the elastic collision time, the potential can be regarded as separable.
+
+In the case of negligible ergodic mixing, the depletion of the high- energy tail of the distribution depends on the selection method. In the opposite case of fast ergodic mixing the distribution is depleted for total energy $E > \eta kT$, independent of the dimensionality of the selection. Since the dynamics of the evaporation are determined by the dimension of the depletion, we will call this \textbf{\textit{the dimension of evaporation.}} This distinction is rigorous only for separable potentials. In the context of evaporative cooling the relevant timescale is the time between elastic collisions. Thus, if the ergodic mixing time is longer than the elastic collision time, the potential can be regarded as separable. 
+
+In the case of negligible ergodic mixing, the depletion of the high- energy tail of the distribution depends on the selection method. In the opposite case of fast ergodic mixing the distribution is depleted for total energy $E > \eta kT$, independent of the dimensionality of the selection. Since the dynamics of the evaporation are determined by the dimension of the depletion, we will call this the dimension of evaporation.        
        
+ Most evaporative cooling experiments on hydrogen used evaporation over a saddle point of the potential which is a  $1D$ selection scheme. Radiative evaporation using rf is a three-dimensional selection scheme in a dc magnetic trap. However, in the TOP trap, it is only two-dimensional, and if gravitational forces become essential, it is only one-dimensional.
        
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+The problem with evaporation in lower dimensions is the dramatic reduction in efficiency for an Ioffe-Pritchard (IP) trap. The reason is that a major fraction of the atoms that have enough total energy to escape collide with other atoms and lose the high excitation energy. Therefore, several “attempts” are necessary before an atom leaves the trap.   
+    
+As long as there are no loss processes, this affects only the time for evaporation. However, if a time limitation is set by inelastic collision processes and background gas collisions, one- or two-dimensional evaporation strongly decreases the efficiency of evaporative cooling. Since loss processes enter in the ratio $\frac{\lambda}{R}$, an increase in $\lambda$ has an effect similar to a decrease in the ratio of good to bad collisions.
+  \subsection{The Number of Collisions to Bose-Einstein Cindensation}
+  All the models discussed here show that evaporative cooling is a fast and efficient way to reduce the temperature of trapped atoms and increase the phase-space density. A possible scenario is as follows: harmonic potential, $\eta$ parameter of 6, removal of $0.7\%$ of the atoms per collision time, increase of phase-space density by a factor of $10^6$ in 600 collision times, and a loss in the number by a factor of 100. Reduction of the $\eta$ parameter to 5 gives the same phase-space density increase in half the number of collisions, but with 5 times fewer atoms left.
+
+Since the phase-space density of laser-cooled atoms is typically $10^{-6}$ lower than is required for Bose-Einstein condensation (BEC), one can summarize the potential of evaporative cooling in the following way: About 500 collision times suffice to achieve BEC with $1\%$ of the atoms remaining.
+
+Real experiments have performed somewhat worse, probably due to nonoptimized cooling, lower dimension of the evaporation, and additional loss and heating processes. However, the few experiments done so far have already impressively confirmed the potential of evaporative cooling.
+ \subsection{Desirable Extensions of The Models}   
+   The theoretical foundations of evaporative cooling are well established. The different models we have discussed describe the salient features of the evaporation process. Extensions in the following directions appear worth- while:
+   
+   \begin{itemize}
+  \item The calculation of optimized trajectories in phase space. There are obviously trade-offs between efficiency and cooling time, and some detailed treatment is desirable.
+  \item So far, all models assume that all particles with a certain (1D or 3D) energy will escape. However, all methods of evaporation rely on spatial selection of atoms.
+  \item All models discuss evaporation in the dilute regime. Dilute means here collisionally thin, or that the mean free path is longer than the size of the sample.
+  \item Most models have treated the atomic motion classically, ignoring quantum statistical effects. For the description of the cooling process, this is justified because evaporative cooling has been used to increase the phase-space density by six orders of magnitude, whereas quantum statistical effects are only pronounced in the vicinity of BEC. 
+\end{itemize}
+\section{The Role of Collisions for Real Atoms}
+\subsection{Elastic And Inelastic Collisions}
+\textbf{\textit{Evaporative cooling is driven by elastic collisions.}} High density and the presence of collisions are therefore prerequisites for evaporative cooling. However, this means that inelastic collisions are unavoidable. We have already mentioned background gas collisions and dipolar relaxation as loss processes, and we wish to give a more systematic account of collision processes in this section.
+
+In a magnetic trap, three kinds of inelastic collisions are relevant for evaporative cooling experiments: \textbf{\textit{dipolar relaxation and spin relaxation, which are binary collisions, and three-body recombination (or dimerization).}}
+
+If atoms are trapped in the upper hyperfine state, hyperfine state changing collisions are important, and the loss processes are similar to the situation in a magnetic trap.
+
+\textbf{\textit{Spin relaxation}} has a rather large rate coefficient, typically $10^{-12}\ cm^3/sec$. It involves an exchange of angular momentum between the electron spin and the nuclear spin. This process is usually important only after the initial loading of the trap and leads to a “self-purification” of the sample in the sense that there are only atoms left in a hyperfine state, which does not undergo spin relaxation. This usually happens in the first few seconds after loading a magnetic trap with atomic hydrogen.
+
+Spin relaxation is forbidden for a doubly spin polarized sample due to angular momentum conservation, and also in the upper (weak-field- seeking) sublevel of the lower hyperfine level (as long as kT is small compared with the ground state hyperfine splitting). However, spin-flips can still occur by coupling the spin angular momentum to the orbital angular momentum. This process, called dipolar relaxation, happens with a rate coefficient $G_{dip}$ typically $10^{-15}\ cm^3/sec$, 1000 times smaller than spin relaxation. The rate coefficients for dipolar relaxation are similar for hydrogen and alkalis.
+
+As for all inelastic processes, the rate coefficient $G_{dip}$ is constant for temperatures approaching zero, whereas for elastic collisions the cross section $\sigma$ approaches a constant. This means that in the limit of low temperature and low density (so that three-body recombination can be neglected) the ratio of good to bad collisions is given by $\sqrt{2} \sigma \bar{v} /G_{dip}$.
+
+This ratio reaches unity at a characteristic temperature $T^*$: $$kT^*=\frac{\pi m G^2_{dip}}{16 \sigma^2} $$
+
+This temperature represents a theoretical lower bound to the minimum temperatures attainable by forced evaporation. The minimum temperature in a harmonic trap is about three times larger than $T^*$, .The smallest temperature that can be reached by evaporative cooling with increasing density is approximately 2000 times larger. One might thus regard $1000T^*$, as the practical temperature limit of evaporative cooling.
+
+
        
        
        
